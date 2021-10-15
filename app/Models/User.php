@@ -41,4 +41,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Связь с моделью Bb
+     */
+    public function bbs()
+    {
+        return $this->hasMany(Bb::class);
+    }
 }
