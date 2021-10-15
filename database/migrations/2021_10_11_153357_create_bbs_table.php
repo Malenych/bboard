@@ -18,6 +18,7 @@ class CreateBbsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->float('price');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->index('created_at');
         });
