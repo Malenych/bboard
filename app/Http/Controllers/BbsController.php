@@ -15,11 +15,6 @@ class BbsController extends Controller
 
     public function detail(BB $bb)
     {
-        $s = $bb->title . "\r\n\r\n";
-        $s .= $bb->content . "\r\n";
-        $s .= $bb->price . " руб.\r\n";
-        $s .= "\r\n";
-
-        return response($s)->header('Content-Type', 'text/plain');
+        return view('detail', ['bb' => $bb]);
     }
 }
