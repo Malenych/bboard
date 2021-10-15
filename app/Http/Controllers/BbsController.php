@@ -9,20 +9,12 @@ class BbsController extends Controller
 {
     public function index()
     {
-        $bbs = Bb::latest()->get();
-        $s = "Объявления\r\n\r\n";
-        foreach ($bbs as $bb) {
-            $s .= $bb->title . "\r\n";
-            $s .= $bb->price . " руб.\r\n";
-            $s .= "\r\n";
-        }
-        return response($s)
-            ->header('Content-Type', 'text/plain');
+        $content = ['bbs' => Bb::latest()->get()];
+        return view('index', $content);
     }
 
-    public function detail($bb)
+    public function detail(BB $bb)
     {
-        $bb = Bb::find($bb);
         $s = $bb->title . "\r\n\r\n";
         $s .= $bb->content . "\r\n";
         $s .= $bb->price . " руб.\r\n";
