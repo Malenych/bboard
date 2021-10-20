@@ -6,6 +6,18 @@
         <link href="/styles/main.css" rel="stylesheet" type="text/css">
     </head>
     <body class="antialiased">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container">
+                <a href="{{ route('index') }}" class="navbar-barnd mr-auto">Главная</a>
+                <a href="{{ route('register') }}" class="nav-item nav-link">Регистрация</a>
+                <a href="{{ route('login') }}" class="nav-item nav-link">Вход</a>
+                <a href="{{ route('home') }}" class="nav-item nav-link">Мои объявления</a>
+                <form action="{{ route('logout') }}" class="form-inline" method="POST">
+                    @csrf
+                    <input type="submit" class="btn btn-danger" value="Выход">
+                </form>
+            </div>
+        </nav>
         <div class="container">
             <h1 class="my-3 text-center">Объявления</h1>
             @yield('main')
